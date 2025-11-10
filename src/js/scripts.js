@@ -1,14 +1,48 @@
-// eslint-disable-next-line no-unused-vars
-/* global output, input */
-// eslint-disable-next-line no-unused-vars
 async function main() {
-  // This is where the code you're actually experimenting with goes.
+//Cashier Program
+  let totalcost = await input("Please enter the total cost of items: ");
+let payment = await input("Please enter amount of payment: ");
+let discountcode = await input("Please enter discount code (0-5): ");
+switch (discountcode) {
+  
+  case "0":
+    discountpercent = 0; //no discount
+    break;
 
-  const prompt = "Please enter your name, or 'Exit' to quit: ";
-  let name = await input(prompt);
+  case "1":
+    discountpercent = 10; //10% discount
+    break;
 
-  while (name !== "Exit") {
-    output("Hello, " + name + "!");
-    name = await input(prompt);
-  }
+  case "2":
+    discountpercent = 15; //15% discount
+
+  case "3":
+    discountpercent = 25; //25% discount
+    break;
+
+  case "4":
+    discountpercent  = 35; //35% discount
+    break;
+
+  case "5":
+    discountpercent = 40; //40% discount
+
 }
+
+let discountedtotal = totalcost * (discountpercent / 100);
+let finaltotal = totalcost - discountedtotal;
+
+let moneyback = payment - finaltotal;
+
+if (moneyback < 0) {
+  output("Insufficient payment");
+} else {
+  output(moneyback);
+}
+
+}
+
+
+
+  
+
